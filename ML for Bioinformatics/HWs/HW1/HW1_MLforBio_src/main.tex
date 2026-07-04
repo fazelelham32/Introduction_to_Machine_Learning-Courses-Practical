@@ -1,0 +1,103 @@
+\documentclass[a4paper]{article} 
+\input{head}
+\begin{document}
+	
+	%-------------------------------
+	%	TITLE SECTION
+	%-------------------------------
+	
+	\fancyhead[C]{}
+	\hrule \medskip % Upper rule
+	\begin{minipage}{0.295\textwidth} 
+		\raggedright
+		\footnotesize
+		  Sharif University of Technology \hfill\\   
+		Computer Engineering Department\hfill\\
+		Ali Sharifi-Zarchi
+            %\begin{figure}
+    	%	\includegraphics{SharifEngLogo.png}
+    	% \end{figure}
+	\end{minipage}
+	\begin{minipage}{0.4\textwidth} 
+		\centering 
+		\large 
+		Homework Assignment 1\\ 
+		\normalsize 
+		Machine Learning for Bioinformatics, Spring 2023\\ 
+	\end{minipage}
+	\begin{minipage}{0.295\textwidth} 
+		\raggedleft
+		\small
+            1401-12-11
+            \hfill\\
+	\end{minipage}
+	\medskip\hrule 
+	\bigskip
+	
+	%-------------------------------
+	%	CONTENTS
+	%-------------------------------
+
+        %----------------------Name of the authors---------------
+        \begin{center}
+            Peyman Naseri, Matin Ale Mohammad, Sana Harighi, Alireza Gargoori
+        \end{center}
+         %-----------------------Part 1-------------------------
+        
+        \section{Probability \& Statistics}
+
+        \subsection{}
+        Suppose $X_{1}$, $X_{2}$, ... are independent normal random variables with mean 0 and variance 9. $N$ is also an integer random variable, independent of $X_{i}$s, with mean 2 and variance 1. We define
+        $S \triangleq  \sum_{i=1}^{N} X_{i}$.
+        \begin{itemize}
+        \item Prove: $Var(X)=\mathbb{E}(Var(X|Y))+Var(\mathbb{E}(X|Y))$
+        \end{itemize}
+        
+        \begin{itemize}
+        \item Find the variance of $S$.
+        \end{itemize}
+         
+        \begin{itemize}
+        \item Derive the correlation coefficient between the random variables $S$ and $N$.
+        \end{itemize}
+
+        \subsection{}
+       Suppose the data samples of an experiment are drawn from a normal distribution $\mathcal{N}(\mu,\,\sigma^{2})$. We assume that the variance of this population $\sigma^{2}$, is known, but its mean $\mu$, is unknown, and we want to estimate it from N independent observations $X_{1}$,...,$X_{N}$.
+        \begin{itemize}
+        \item Find the ML estimate for the population mean.
+        \item Suppose that the prior distribution of the parameter $\mu$ is the normal distribution $\mathcal{N}(\alpha,\,\beta^{2})$. Find the MAP estimate for the population mean. What is the effect of choosing this prior on the posterior distribution?
+        \item Explain the relationship between these two estimates when the number of samples is increased.
+        \end{itemize}
+
+        \subsection{}
+        Suppose $X_{1},X_{2},...,X_{n}$ are iid random variables. Find the probability density function of $Y_{1}=max[X_{1},X_{2},...,X_{n}]$ and
+        $Y_{2}=min[X_{1},X_{2},...,X_{N}]$.
+        
+        \bigskip
+
+         %-----------------------Part 2-------------------------
+        
+        \section{Linear Algebra}
+        
+        \subsection{}
+       Suppose $A, B\in M_{m\times n}(\mathbb{R})$. Show that $\langle A,B \rangle = tr(B^{T}A)$ is an inner product.
+
+
+
+        \subsection{}
+       Assume that $x$ is a vector and $A$ is a square matrix. Show that:
+        \begin{itemize}
+        \item $\dfrac{\partial x^{T}Ax}{\partial x}=2x^{T}A$
+        \item $\dfrac{\partial trace( x^{T}Ax)}{\partial x}=x^{T}(A+A^{T})$
+        \end{itemize}
+
+        \subsection{}
+        Suppose $\lambda_{1},\lambda_{2},...,\lambda_{n}$ are the eigثnvalues of matrix A, Prove: 
+                \begin{itemize}
+        \item $\lambda_{1}+\lambda_{2}+...+\lambda_{n}=trace(A)$
+        \item $\lambda_{1}\lambda_{2}...\lambda_{n}=det(A)$
+        \item $AB$ and $BA$ have the same set of eigenvalues.
+        \item $A$ and $A^{T}$ have the same set of eigenvalues.
+        \end{itemize}
+        	
+\end{document}

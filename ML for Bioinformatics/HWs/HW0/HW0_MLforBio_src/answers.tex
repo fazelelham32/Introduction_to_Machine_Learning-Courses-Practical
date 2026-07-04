@@ -1,0 +1,489 @@
+\documentclass[a4paper]{article} 
+\input{head}
+\begin{document}
+	
+	%-------------------------------
+	%	TITLE SECTION
+	%-------------------------------
+	
+	\fancyhead[C]{}
+	\hrule \medskip % Upper rule
+	\begin{minipage}{0.295\textwidth} 
+		\raggedright
+		\footnotesize
+		  Sharif University of Technology \hfill\\   
+		Computer Engineering Department\hfill\\
+		Ali Sharifi-Zarchi
+            %\begin{figure}
+    	%	\includegraphics{SharifEngLogo.png}
+    	% \end{figure}
+	\end{minipage}
+	\begin{minipage}{0.4\textwidth} 
+		\centering 
+		\large 
+		Homework Assignment 0\\ 
+		\normalsize 
+		Machine Learning for Bioinformatics, Spring 2023\\ 
+	\end{minipage}
+	\begin{minipage}{0.295\textwidth} 
+		\raggedleft
+		\small
+            1401-11-28
+            \hfill\\
+	\end{minipage}
+	\medskip\hrule 
+	\bigskip
+	
+	%-------------------------------
+	%	CONTENTS
+	%-------------------------------
+
+        %----------------------Name of the authors---------------
+        \begin{center}
+            Peyman Naseri, Matin Ale Mohammad, Sana Harighi, Alireza Gargoori, Maryam Hokmabadi
+        \end{center}
+         %-----------------------Part 1-------------------------
+        
+        \section{Probability \& Statistics}
+
+        \subsection{}
+        Suppose $X_{1}$, $X_{2}$, ... are independent normal random variables with mean 0 and variance 9. $N$ is also an integer random variable, independent of $X_{i}$s, with mean 2 and variance 1. We define
+        $S \triangleq  \sum_{i=1}^{N} X_{i}$.
+        \begin{itemize}
+        \item Prove: $Var(X)=\mathbb{E}(Var(X|Y))+Var(\mathbb{E}(X|Y))$\\
+        \\
+        $Solution:$ 
+        \end{itemize}
+        \begin{eqnarray*}
+        {Var(X|Y)} &=& {E[X^2|Y] - (E[X|Y])^2}\\
+        \xrightarrow{} {E[Var(X|Y)]} &=& {E[E[X^2|Y]]} - {E[(E[X|Y])^2]}= {E[X^2]} - {E[(E[X|Y])^2]}\\
+        Var(E[X|Y]) &=& E[(E[X|Y])^2] - (E[E[X|Y]])^2 = E[(E[X|Y])^2] - (E[X])^2 \\
+        \xrightarrow{} {E[Var(X|Y)]} + {Var(E[X|Y])} &=& {E[X^2]} - {(E[X])^2}
+        \end{eqnarray*}
+        \\
+        \begin{itemize}
+        \item Find the variance of $S$.\\
+        \\
+        $Solution:$ 
+        \end{itemize}
+        \begin{eqnarray*}
+        {Var(S)} &=& {E({S^2}) - {E^2}({S})}{}{} (*) \\
+        {E(A)} &=& {} E_{B}(E_{A}[A|B]) {}{}(**) \\
+        \xrightarrow{(*), (**)} Var(S) &=& {} E_N[E_S^2[S^2|N]] - (E_N[E_S[S|N]])^2 \\
+        \end{eqnarray*}
+        \begin{eqnarray*}
+            E[S|N] &=& E[\sum_{i=1}^{N} X_{i}] = \sum_{i=1}^{N} E[X_{i}] = 0 {} (1) \\
+            {E[S^2|N]} &=& {E[\sum_{i=1}^{N}\sum_{j=1}^{N} X_{i}X_{j}]}\\
+            &=&{\sum_{i=1}^{N}\sum_{j=1}^{N} E[X_{i}X_{j}]}\\
+            &=& {\sum_{i=1}^{N} E[X_{i}^2)] = N*Var(X_{i}] = 9*N} {} (2) \\
+            (1), (2) &\xrightarrow{}& {Var(S) = E[9*N] + E[0]}\\
+            &=&{9*E[N] = 9 * 2 = 18} {}
+        \end{eqnarray*}
+        \\
+        \\
+        \\
+        \\
+        \\
+        \\
+        \begin{itemize}
+        \item Derive the correlation coefficient between the random variables $S$ and $N$.\\
+        $Solution:$
+        \begin{quote}
+            \emph{To derive the correlation coefficient between the random variables $S$ and $N$, we need to first find their covariance and then divide it by the product of their standard deviations. Using the linearity of covariance, we have:}
+        \end{quote}
+
+        \begin{align*}
+            \operatorname{cov}(S, N) = \operatorname{cov}\left(\sum_{i=1}^{N} X_{i}, N\right) = \sum_{i=1}^{N} \operatorname{cov}(X_{i}, N)
+        \end{align*}
+        
+        \begin{quote}
+            \emph{Since $X_{i}$ and $N$ are independent, their covariance is zero. Thus, we have:}
+        \end{quote}
+        
+        \begin{align*}
+            \operatorname{cov}(S, N) = \sum_{i=1}^{N} \operatorname{cov}(X_{i}, N) = \sum_{i=1}^{N} 0 = 0
+        \end{align*}
+        
+        \begin{quote}
+            \emph{Next, we need to find the standard deviations of $S$ and $N$. Since the $X_{i}$ are independent and identically distributed, we have:}
+        \end{quote}
+        
+        \begin{align*}
+            \operatorname{Var}(S) = \sum_{i=1}^{N} \operatorname{Var}(X_{i}) = \sum_{i=1}^{N} 9 = 9N
+        \end{align*}
+        
+        \begin{quote}
+            \emph{Taking the square root of both sides, we get:}
+        \end{quote}
+        
+        \begin{align*}
+            \operatorname{SD}(S) = 3\sqrt{N}
+        \end{align*}
+        
+        \begin{quote}
+            \emph{Similarly, we have:}
+        \end{quote}
+        
+        \begin{align*}
+            \operatorname{SD}(N) = \sqrt{\operatorname{Var}(N)} = \sqrt{1} = 1
+        \end{align*}
+        
+        \begin{quote}
+            \emph{Therefore, the correlation coefficient between $S$ and $N$ is:}
+        \end{quote}
+        
+        \begin{align*}
+            \rho_{S,N} = \frac{\operatorname{cov}(S, N)}{\operatorname{SD}(S)\operatorname{SD}(N)} = \frac{0}{3\sqrt{N}\cdot 1} = 0
+        \end{align*}
+        \end{itemize}
+        \vspace*{16\baselineskip}
+        \subsection{}
+       Suppose the data samples of an experiment are drawn from a normal distribution $\mathcal{N}(\mu,\,\sigma^{2})$. We assume that the variance of this population $\sigma^{2}$, is known, but its mean $\mu$, is unknown, and we want to estimate it from N independent observations $X_{1}$,...,$X_{N}$.
+        \begin{itemize}
+        \item Find the ML estimate for the population mean.\\
+        \\
+        $Solution:$ \\
+        \begin{eqnarray*}
+            \emph{The likelihood function is:}\\
+            L(\mu, \sigma^2; {x_1}, {x_2}, ..., {x_n}) &=& {(2\pi \sigma^2)^{-n/2}}exp(-\frac{1}{2{\sigma^2}}\sum_{j=1}^n({x_j}-\mu)^2) \\
+            \emph{And the log likelihood is:} \\
+            Ln(\mu, \sigma^2; {x_1}, {x_2}, ..., {x_n}) &=& -\frac{n}{2}ln(2\pi) -\frac{n}{2}ln(\sigma^2) - \frac{1}{2{\sigma^2}}\sum_{j=1}^n({x_j}-\mu)^2\\
+            \hat{\mu}_{ML} = arg max_\mu \emph{} Ln(\mu, \sigma^2; {x_1}, {x_2}, ..., {x_n}) &\Rightarrow& \frac{\partial}{\partial \mu} Ln(\mu, \sigma^2; {x_1}, {x_2}, ..., {x_n}) = 0 \\
+            &\Rightarrow& 2\sum_{i=1}^n \frac{({x_i} - \hat{\mu}_{ML})}{2\sigma^2} = 0 \\
+            \sum_{i=1}^n ({x_i} - \hat{\mu}_{ML}) &=& 0 \Rightarrow \sum_{i=1}^n {x_i} - n\hat{\mu}_{ML} = 0 \\
+            \emph{So the MLE is calculated as below: } \\
+            \hat{\mu}_{MLE} &=& \frac{1}{n} \sum_{i=1}^n {x_i}\emph{ : Sample mean}
+        \end{eqnarray*}
+        \item Suppose that the prior distribution of the parameter $\mu$ is the normal distribution $\mathcal{N}(\alpha,\,\beta^{2})$. Find the MAP estimate for the population mean. What is the effect of choosing this prior on the posterior distribution?\\
+        \\
+        $Solution:$ \\
+        \begin{eqnarray*}
+            \mu_{prior} \sim \mathcal{N}(\alpha,\,\beta^{2}) &\Rightarrow& {f_U}(\mu) = \frac{1}{2\pi \beta}exp(-\frac{(\mu - \alpha)^2}{2{\beta^2}}) \\
+            \hat{\mu}_{MAP} &=& arg max_\mu {} L(\mu, \sigma^2; {x_1}, {x_2}, ..., {x_n}){f_U}(\mu)\\
+            \hat{\mu}_{MAP} = arg max_\mu Ln(L(\mu, \sigma^2; {x_1}, {x_2}, ..., {x_n}){f_U}(\mu)) &=& arg max_\mu [Ln(L(\mu, \sigma^2; {x_1}, {x_2}, ..., {x_n}) + Ln({f_U}(\mu))] \\
+            Ln(L(\mu, \sigma^2; {x_1}, {x_2}, ..., {x_n}){f_U}(\mu))  &=& -\frac{N}{2} Ln(2\pi) - NLn(\sigma) - \sum_{i=1}^n \frac{({x_i - \mu})^2}{2\sigma^2}\\
+            -\frac{1}{2}Ln(2\pi) - Ln(\beta) - (\frac{(\mu - \alpha)^2}{2\beta^2}) &=& H(\mu, \sigma^2; {x_1}, {x_2}, ..., {x_n}) \\
+            &\Rightarrow& \frac{\partial}{\partial \mu}H(\mu, \sigma^2; {x_1}, {x_2}, ..., {x_n})  = 0 \\
+            &\Rightarrow& \frac{1}{\sigma^2} \sum_{i=1}^N ({x_i} - \hat{\mu}_{MAP}) - \frac{1}{\beta^2}(\hat{\mu}_{MAP} - \alpha) = 0 \\
+            \Rightarrow \hat{\mu}_{MAP} = \frac{\frac{1}{\sigma^2} \sum_{i=1}^n {x_i} + \frac{\alpha}{\beta^2}}{\frac{\sigma^2 + N\beta^2}{(\sigma \beta)^2}} &=& \frac{\beta^2 \sum_{i=1}^n {x_i} + \alpha{\sigma^2}}{\sigma^2 + n\beta^2}
+        \end{eqnarray*}
+        \vspace*{6\baselineskip}
+        \item Explain the relationship between these two estimates when the number of samples is increased.\\
+        \\
+        $Solution:$ \\
+        \begin{eqnarray*}
+            \hat{\mu}_{MLE} &=& \frac{1}{n} \sum_{i=1}^n {x_i}\emph{ : Sample mean}\\
+            \hat{\mu}_{MAP} &=& \frac{\beta^2 \sum_{i=1}^n {x_i} + \alpha{\sigma^2}}{\sigma^2 + n\beta^2}\\
+            \lim_{n\to\infty} \hat{\mu}_{MAP} &=& \frac{\beta^2 \sum_{i=1}^n {x_i}}{N\beta^2} = \frac{1}{n} \sum_{i=1}^n {x_i} = \emph{Sample Mean} \\
+            &\Rightarrow& \lim_{n\to\infty} \hat{\mu}_{MAP} = \hat{\mu}_{ML} 
+        \end{eqnarray*}
+        \begin{quote}
+            \emph{It can be shown that generally this statement is true, by increasing samples MAP and ML estimators will approach towards each other.}
+        \end{quote}
+        \end{itemize}
+
+        \subsection{}
+        Suppose $X_{1},X_{2},...,X_{n}$ are iid random variables. Find the probability density function of $Y_{1}=max[X_{1},X_{2},...,X_{n}]$ and
+        $Y_{2}=min[X_{1},X_{2},...,X_{N}]$.\\
+        \\
+        $Solution:$ \\
+        \begin{eqnarray*}
+            {Y_1} &=& MAX[{X_1}, {X_2}, {X_3}, …, {X_N}]\\
+            CDF {} of{} {Y_1}: {F_{Y_1}}({y_1}) &=& P({Y_1} \leqslant {y_1}) = P({MAX[{X_1}, {X_2}, {X_3}, …, {X_N}] \leqslant {y_1}})\\
+            \Longrightarrow {F_{Y_1}}({y_1}) &=& P({X_1} \leqslant {y_1}, {X_2} \leqslant {y_1}, … , {X_n} \leqslant {y_1}) \\
+            &=& P({X_1}\leqslant{y_1}) * p({X_2}\leqslant{y_1}) * … * p({X_n}\leqslant{y_1})\\ &=& {F_{X_1}}({y_1}){F_{X_2}}({y_1})…{F_{X_n}}({y_1}) = {F_X^n}({y_1})\\
+            \\
+            PDF of {Y_1}: \frac{\partial {F_{Y_1}}({y_1})}{\partial {y_1}} &=& \frac{\partial {F_X^n}({y_1})}{\partial {y_1}}\\
+            &=& n{{F_X}^{(n-1)}}({y_1}){f_X}({y_1})
+        \end{eqnarray*}
+        \\
+        \begin{eqnarray*}
+            {Y_2} &=& MIN[{X_1}, {X_2}, {X_3}, …, {X_N}]\\
+            CDF {} of{} {Y_2}: {F_{Y_2}}({y_2}) &=& P({Y_2} \leqslant {y_2}) = P({MIN[{X_1}, {X_2}, {X_3}, …, {X_N}] \leqslant {y_2}})\\
+            &=& 1 - P(MIN[{X_1}, {X_2}, {X_3}, …, {X_N}]>{y_2}) \\
+            &=& 1 - P({X_1} > {y_2}, {X_2} > {y_2}, ..., {X_n} > {y_2})\\
+            &=& 1 - P({X_1} > {y_2})P({X_2} > {y_2})...P({X_n} > {y_2}) \\
+            &=& 1 - (1-P({X_1} \leqslant {y_2})(1-P({X_2} \leqslant {y_2})...(1-P({X_n} \leqslant {y_2})\\
+            &=& 1 - (1 - {F_{X_1}}({y_2})(1 - {F_{X_2}}({y_2})...(1 - {F_{X_n}}({y_2}) \\
+            &=& 1 - (1 - {F_{X}}({y_2}))^n\\
+            \\
+            PDF of {Y_2}: \frac{\partial {F_{Y_2}}({y_2})}{\partial {y_2}} &=& \frac{\partial [1 - (1 - {F_X}({Y_2}))^n]}{\partial {y_2}}\\
+            &=& -n(1 - {{F_X}^{(n-1)}})({y_2}){f_X}({y_2})
+        \end{eqnarray*}
+        \vspace*{6\baselineskip}
+        \bigskip
+
+         %-----------------------Part 2-------------------------
+        
+        \section{Linear Algebra}
+        
+        \subsection{}
+       Suppose $A, B\in M_{m\times n}(\mathbb{R})$. Show that $\langle A,B \rangle = tr(B^{T}A)$ is an inner product.\\
+        \\
+        $Solution:$ \\
+       \begin{quote}
+           \emph{First we prove that $\langle A,A \rangle \geq 0$ {} and $\langle A,A \rangle = 0$; iff A= 0:}
+       \end{quote}\\
+       \begin{eqnarray*}
+           \langle A, A \rangle = tr({A^T}A) = \sum_{i=1}^{n} {({A^T}A)_{i,i}} = \sum_{i=1}^{n}(\sum_{j=1}^{m}{{A^T}_{i,j}} * {A_{j,i}}) = \sum_{i=1}^{n}(\sum_{j=1}^{m}{A_{j,i}} * {A_{j,i}}) = \sum_{j=1}^{m}\sum_{i=1}^{n} {{A^2}_{j,i}}
+       \end{eqnarray*}\\
+       \begin{quote}
+       \emph{Due to the fact that the above expression is a summation of some non-negative value, it will always be non-negative and zero, if and only if all of its values are zero, which means A = 0.\\
+       Now we prove this operation has the property of addition to the first component:}  
+       \end{quote}\\
+       \begin{eqnarray*}
+           \langle {A_1}+{A_2}, B \rangle = tr({B^T}({A_1+A_2})) = tr({B^T}{A_1} + {B^T}{A_2}) = tr({B^T}{A_1}) + tr({B^T}{A_2}) = \langle {A_1}, B \rangle + \langle {A_2}, B \rangle
+       \end{eqnarray*}\\
+       \begin{quote}
+           \emph{Then Homogeneity to the first component needs to be proved as below:}
+       \end{quote} \\
+       \begin{eqnarray*}
+           \langle \lambda A, B\rangle = tr({B^T}(\lambda A)) = tr(\lambda({B^T}A)) = \lambda tr({B^T}A) = \lambda \langle A, B \rangle
+       \end{eqnarray*}
+       \begin{quote}
+           \emph{Now check conjugate symmetry. since we are in Real numbers, we have to prove $\langle A, B \rangle$ = $\langle B, A \rangle$:}
+       \end{quote}
+       \begin{eqnarray*}
+           \langle A, B \rangle = tr({B^T}A) = \sum_{i=1}^{n}{({B^T}A)}_{i,i} = \sum_{i=1}^{n}(\sum_{j=1}^{m}{{B^T}_{i,j}} * {A_{j,i}}) = \sum_{i=1}^{n}(\sum_{j=1}^{m}{B_{j,i}} * {A_{j,i}}) = \sum_{i=1}^n ({{A^T}B}_{i,i}) = tr({A^T}B) = \langle B, A \rangle
+       \end{eqnarray*}
+       \begin{quote}
+           \emph{Now the statement is proved.}
+       \end{quote}
+       \vspace*{2\baselineskip}
+        \subsection{}
+       Assume that $x$ is a vector and $A$ is a square matrix. Show that:
+        \begin{itemize}
+        \item $\dfrac{\partial x^{T}Ax}{\partial x}=2x^{T}A$\\
+        \\
+        $Solution:$ \\
+        
+        \begin{eqnarray*}
+           x =  \begin{bmatrix}
+            {x_1}\\
+            {x_2} \\
+            .\\
+            .\\
+            .\\
+            {x_n}
+            \end{bmatrix}, A =  \begin{bmatrix}
+            {a_11}&{a_12}&...&{a_1n}\\
+            {a_11}&{a_12}&...&{a_1n}\\
+            .&.&.&.\\
+            .&.&.&.\\
+            .&.&.&.\\
+            {a_11}&{a_12}&...{a_1n}
+            \end{bmatrix}
+        \end{eqnarray*}
+        $So$, $we$ $will$ $have$:\\
+        \begin{eqnarray*}
+            % {x^T}Ax = [\sum_{i=1}^n {a_i1}{x_i} \sum_{i=1}^n {a_i1}{x_i} ... \sum_{i=1}^n {a_i1}{x_i}]
+            {x^T}Ax = \begin{bmatrix}
+                \sum_{i=1}^n {a_{i1}}{x_i} & \sum_{i=1}^n {a_{i2}}{x_i} & ... & \sum_{i=1}^n {a_{in}}{x_n}\end{bmatrix} \begin{bmatrix}
+                    {x_1}\\
+                    {x_2}\\
+                    .\\
+                    .\\
+                    .\\
+                    {x_n}
+                \end{bmatrix} = \sum_{i=1}^n\sum_{j=1}^n {a_{ij}}{x_i}{x_j}
+        \end{eqnarray*}
+        $Therefore,$ \\
+        \begin{eqnarray*}
+            \dfrac{\partial x^{T}Ax}{\partial {x_i}}=2x^{T}A = \sum_{j=1}^n ({a_{ij}} + {a_{ji}}){x_j}
+            \dfrac{\partial x^{T}Ax}{\partial {x}} = {x^T}(A + {A^T}) = 2x^{T}A
+        \end{eqnarray*}
+        $Notice$ $that$ $A$ $is$ $symmetrice$\\
+        \vspace*{2\baselineskip}
+        \item $\dfrac{\partial trace( x^{T}Ax)}{\partial x}=x^{T}(A+A^{T})$\\
+        \\
+        $Solution:$ 
+        \begin{quote}
+            \emph{We have:}
+        \end{quote}
+        \begin{align*}
+            \dfrac{\partial}{\partial x} \operatorname{trace}(x^{T}Ax) = \dfrac{\partial}{\partial x} \sum_{i=1}^{n} \sum_{j=1}^{n} a_{ij}x_{i}x_{j},
+        \end{align*}\\
+        \begin{quote}
+            \emph{where n is the dimension of x and A.}
+        \end{quote}
+        
+        \begin{quote}
+            \emph{Since the trace is just the sum of the diagonal entries of a matrix, we can rewrite this as:}
+        \end{quote}
+        
+        \begin{align*}
+            \dfrac{\partial}{\partial x} \operatorname{trace}(x^{T}Ax) = \dfrac{\partial}{\partial x} \operatorname{trace}(xx^{T}A)
+        \end{align*}\\
+        
+        \begin{quote}
+            \emph{Using the cyclic property of the trace, we can move $A$ to the front:}
+        \end{quote}
+        
+        \begin{align*}
+            \dfrac{\partial}{\partial x} \operatorname{trace}(x^{T}Ax) = \dfrac{\partial}{\partial x} \operatorname{trace}(Axx^{T})
+        \end{align*}\\
+        
+        \begin{quote}
+            \emph{Using the formula for the derivative of the trace, we have:}
+        \end{quote}
+        
+        \begin{align*}
+            \dfrac{\partial}{\partial x} \operatorname{trace}(x^{T}Ax) = A^{T}x + Ax
+        \end{align*}\\
+        
+        \begin{quote}
+            \emph{Note that $A^{T} = A$ since $A$ is a square matrix. Multiplying $x^{T}$ on the left, we get:}
+        \end{quote}
+        
+        \begin{align*}
+            \dfrac{\partial}{\partial x} \operatorname{trace}(x^{T}Ax) = x^{T}A^{T} + x^{T}A = x^{T}(A + A^{T})
+        \end{align*}\\
+        
+        \begin{quote}
+            \emph{Therefore, we have shown that:}
+        \end{quote}
+        
+        \begin{align*}
+            \dfrac{\partial}{\partial x} \operatorname{trace}(x^{T}Ax) = x^{T}(A + A^{T})
+        \end{align*}\\
+        \end{itemize}
+        \subsection{}
+        Suppose $\lambda_{1},\lambda_{2},...,\lambda_{n}$ are the eignvalues of matrix A, Prove: 
+                \begin{itemize}
+        \item $\lambda_{1}+\lambda_{2}+...+\lambda_{n}=trace(A)$\\
+        \\
+        $Solution:$ \\
+            \begin{quote}
+                \emph{Using the definition of the trace of a matrix, we have:}
+            \end{quote}
+
+            \begin{align*} \operatorname{trace}(A) &= a_{11} + a_{22} + \cdots + a_{nn}, \end{align*}
+            
+            \begin{quote}
+                \emph{where $a_{ii}$ is the $(i,i)$-th entry of $A$.}
+            \end{quote}
+            \begin{quote}
+                \emph{Every matrix satisfies its own characteristic polynomial, which is defined as $\det(A - \lambda I) = 0$, where $I$ is the identity matrix and $\lambda$ is an eigenvalue of $A$. So, we can write:}
+            \end{quote}
+            
+            \begin{align*} \det(A - \lambda I) &= (-1)^n (\lambda^n + c_{n-1} \lambda^{n-1} + \cdots + c_1 \lambda + c_0), \end{align*}
+            
+            \begin{quote}
+                \emph{where $n$ is the order of $A$ and $c_i$ are constants. Substituting $\lambda = 0$, we get:}
+            \end{quote}
+            
+            \begin{align*} \det(A) &= (-1)^n c_0, \end{align*}
+            
+            \begin{quote}
+                \emph{which implies that $c_0$ is equal to $(-1)^n$ times the determinant of $A$.}
+                \emph{Substituting $\lambda = a_{ii}$, we get:}
+            \end{quote}
+            
+            \begin{align*} \det(A - a_{ii} I) &= (-1)^n (a_{ii} - a_{11})(a_{ii} - a_{22}) \cdots (a_{ii} - a_{nn}), \end{align*}
+            
+            \begin{quote}
+                \emph{which implies that the product of the eigenvalues of $A$ is equal to $(-1)^n$ times the determinant of $A$. Dividing both sides by $(-1)^n$, we get:}
+            \end{quote}
+            
+            \begin{align*} \lambda_1 \lambda_2 \cdots \lambda_n &= \det(A), \end{align*}
+            
+            \begin{quote}
+                \emph{where $\lambda_1, \lambda_2, \ldots, \lambda_n$ are the eigenvalues of $A$.}
+                \emph{ Using the above result, we can express the characteristic polynomial of $A$ as:}
+            \end{quote}
+            
+            \begin{align*} \det(A - \lambda I) &= (\lambda - \lambda_1)(\lambda - \lambda_2) \cdots (\lambda - \lambda_n), \end{align*}
+            
+            \begin{quote}
+                \emph{and we can expand this polynomial as:}
+            \end{quote}
+            
+            \begin{align*} \det(A - \lambda I) &= \lambda^n + (-1)^{n-1}(\lambda_1 + \lambda_2 + \cdots + \lambda_n) \lambda^{n-1} + \cdots + (-1)^n \det(A). \end{align*}
+            
+            \begin{quote}
+                \emph{Comparing the coefficients of $\lambda^{n-1}$ on both sides, we get:}
+            \end{quote}
+            
+            \begin{align*} -(\lambda_1 + \lambda_2 + \cdots + \lambda_n) &= \operatorname{trace}(A), \end{align*}
+            
+            \begin{quote}
+                \emph{which implies that the sum of the eigenvalues of $A$ is equal to the trace of $A$. Therefore, we have proven the desired result.}
+            \end{quote}
+            \vspace*{6\baselineskip}
+
+        \item $\lambda_{1}\lambda_{2}...\lambda_{n}=det(A)$\\
+        \\
+        $Solution:$ \\
+        \begin{quote}
+            \emph{Since $\lambda$s are eigenvalues of matrix, then they are also the roots of characteristic polynomial.}
+        \end{quote}
+        \begin{align*} \det(A - \lambda I) &= p(\lambda) = (-1)^n (\lambda - \lambda_1)(\lambda - \lambda_2) \cdots (\lambda - \lambda_n) = (\lambda_1 - \lambda)(\lambda_2 - \lambda) \cdots (\lambda_n - \lambda), \end{align*}
+        \begin{quote}
+            \emph{We put $\lambda$ equal to zero. So: }
+        \end{quote}\\
+        \begin{align*} \det(A) = \lambda_1 \lambda_2 \cdot \lambda_n, \end{align*}
+        \vspace*{2}
+        \item $AB$ and $BA$ have the same set of eigenvalues. \\
+        \\
+        $Solution:$ 
+        \begin{quote}
+            \emph{To prove that $AB$ and $BA$ have the same eigenvalues, we need to show that the characteristic polynomials of them are equal. The characteristic polynomial of a matrix is defined as: $\det(\lambda I - A)$}
+        \end{quote}
+        
+        \begin{quote}
+            \emph{where $\lambda$ is an eigenvalue of A and I is the identity matrix of the same size as A. So, we need to show that for all $\lambda$:}
+        \end{quote}
+
+        \begin{align*} \det(\lambda I - AB) = \det(\lambda I - BA) \end{align*}
+        
+        \begin{quote}
+            \emph{Let $\lambda$ be an arbitrary eigenvalue of AB, with corresponding eigenvector $\mathbf{v}$. Then we have:}
+        \end{quote}
+        
+        \begin{align}
+            AB\mathbf{v} = \lambda\mathbf{v}
+        \end{align}
+        
+        \begin{quote}
+            \emph{Let $\mathbf{u}=Bv$. Multiplying both sides by $B$, we get:}
+        \end{quote}
+        
+        \begin{align*}
+            BA\mathbf{u} = BAB\mathbf{v} = B(AB\mathbf{v}) = B(\lambda\mathbf{v})
+        \end{align*}
+        
+        \begin{quote}
+            \emph{Since $B$ commutes with $\lambda I$, we can write this as:}
+        \end{quote}
+        
+        \begin{align*}
+            BA\mathbf{u} = \lambda(B\mathbf{v}) = \lambda \mathbf{u}
+        \end{align*}
+        
+        \begin{quote}
+            \emph{Therefore, we have:}
+        \end{quote}
+        
+        \begin{align*}
+            BA \mathbf{u} = \lambda \mathbf{u}
+        \end{align*}
+        
+        \begin{quote}
+            \emph{This shows that $\lambda$ is an eigenvalue of $BA$ with corresponding eigenvector $\mathbf{u} = B\mathbf{v}$.}
+        \end{quote}
+        
+        \begin{quote}
+            \emph{Therefore, every eigenvalue of $AB$ is also an eigenvalue of $BA$, and vice versa. Since the characteristic polynomial of a matrix is the product of its eigenvalues (with appropriate algebraic multiplicities), it follows that the two matrices have the same characteristic polynomial, and hence the same eigenvalues.}
+        \end{quote}
+        \vspace*{2\baselineskip}
+        \item $A$ and $A^{T}$ have the same set of eigenvalues.
+        \\
+        \\
+        $Solution:$ 
+        \begin{quote}
+            \emph{We know the eigenvalues are the roots of the characteristic polynomial; therefore, if we prove $A$ and $A^T$ have the same characteristic polynomial equation, the statement will be proved.}
+        \end{quote}
+        \begin{align*} |A^T - \lambda I| = |A^T - \lambda I^T| = |(A - \lambda I)^T| = |A - \lambda I|, \end{align*}
+        \end{itemize}
+        	
+\end{document}
